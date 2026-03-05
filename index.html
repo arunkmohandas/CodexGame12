@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pinfall Incremental</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>Pinfall Incremental</h1>
+      <div class="top-stats">
+        <span id="coinDisplay">🪙 0</span>
+        <span id="levelDisplay">Level 1</span>
+      </div>
+    </header>
+
+    <main>
+      <section id="mainMenu" class="screen active">
+        <div class="menu-grid">
+          <button data-screen="puzzleScreen" class="primary">Start Game</button>
+          <button id="continueBtn" data-screen="puzzleScreen">Continue</button>
+          <button data-screen="upgradeScreen">Upgrades</button>
+          <button data-screen="idleScreen">Idle Income</button>
+          <button data-screen="statsScreen">Statistics</button>
+          <button data-screen="settingsScreen">Settings</button>
+          <button data-screen="creditsScreen">Credits</button>
+        </div>
+      </section>
+
+      <section id="puzzleScreen" class="screen">
+        <div class="puzzle-controls">
+          <button id="restartBtn">Restart</button>
+          <button id="undoBtn">Undo</button>
+          <button id="hintBtn">Hint</button>
+          <button id="menuBtn">Menu</button>
+        </div>
+        <div id="chamber" class="chamber">
+          <div id="container" class="container">Container</div>
+          <div id="effectsLayer" class="effects-layer"></div>
+        </div>
+      </section>
+
+      <section id="upgradeScreen" class="screen panel-screen">
+        <h2>Upgrades</h2>
+        <div id="upgradeCards" class="card-grid"></div>
+        <button class="back-btn" data-screen="mainMenu">Back</button>
+      </section>
+
+      <section id="idleScreen" class="screen panel-screen">
+        <h2>Idle Buildings</h2>
+        <div id="buildingCards" class="card-grid"></div>
+        <p id="incomeInfo"></p>
+        <button class="back-btn" data-screen="mainMenu">Back</button>
+      </section>
+
+      <section id="statsScreen" class="screen panel-screen">
+        <h2>Statistics</h2>
+        <ul id="statsList"></ul>
+        <button class="back-btn" data-screen="mainMenu">Back</button>
+      </section>
+
+      <section id="settingsScreen" class="screen panel-screen">
+        <h2>Settings</h2>
+        <label><input type="checkbox" id="audioToggle" checked /> Audio Enabled</label>
+        <label><input type="checkbox" id="themeToggle" /> Dark Theme</label>
+        <button class="back-btn" data-screen="mainMenu">Back</button>
+      </section>
+
+      <section id="creditsScreen" class="screen panel-screen">
+        <h2>Credits</h2>
+        <p>Designed and generated as a standalone hyper-casual puzzle prototype.</p>
+        <p>No external assets. All visuals and sounds generated in browser.</p>
+        <button class="back-btn" data-screen="mainMenu">Back</button>
+      </section>
+    </main>
+
+    <div id="toast"></div>
+
+    <div id="levelCompleteModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Level Complete!</h3>
+        <p id="levelResult"></p>
+        <div class="modal-actions">
+          <button id="nextLevelBtn">Next Level</button>
+          <button id="replayBtn">Replay</button>
+          <button id="upgradeShortcutBtn">Upgrades</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
